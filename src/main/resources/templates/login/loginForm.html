@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html
+	lang="ja"
+	xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -10,15 +12,41 @@
 </head>
 
 <body>
-	<form>
-		<h1>ログインフォーム</h1>
-		<!-- ユーザーID -->
-		<label>ユーザID:</label>
-			<input type="text">
-		<!-- パスワード -->
-		<label>パスワード:</label> <input type="password"> <input
-			type="submit">
+
+	<h3>ログイン</h3>
+
+	<form
+		action="#"
+		th:action="@{/authenticateTheUser}"
+		method="POST">
+		
+		<div th:if="${param.error}">
+		
+		<i>無効なユーザ名、パスワードです。</i>
+		</div>
+		
+		<div th:if="${param.logout}">
+		
+		<p>ログアウトしました。</p>
+		</div>
+		
+		<p>
+			ユーザ名: <input
+				type="text"
+				name="username" />
+		</p>
+		<p>
+			パスワード: <input
+				type="password"
+				name="password" />
+		</p>
+
+		<input
+			type="submit"
+			value="ログイン" />
+
 	</form>
+
 </body>
 
 </html>

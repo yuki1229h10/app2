@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>ホーム</title>
+<title>Insert title here</title>
 </head>
 <body>
-ようこそ
+	home
+
+	<form
+		action="#"
+		th:action="@{/logout}"
+		method="POST">
+		<input
+			type="submit"
+			value="Logout" />
+	</form>
 </body>
 </html>
