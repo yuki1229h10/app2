@@ -2,7 +2,6 @@
 <html
 	lang="ja"
 	xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <meta charset="UTF-8">
 <meta
@@ -10,43 +9,31 @@
 	content="width=device-width, initial-scale=1.0">
 <title>ログイン</title>
 </head>
-
 <body>
-
-	<h3>ログイン</h3>
-
+	<div th:if="${param.error}">
+		<i>無効なユーザ名、パスワードです。</i>
+	</div>
+	<div th:if="${param.logout}">
+		<i>ログアウトしました。</i>
+	</div>
 	<form
-		action="#"
 		th:action="@{/authenticateTheUser}"
 		method="POST">
-		
-		<div th:if="${param.error}">
-		
-		<i>無効なユーザ名、パスワードです。</i>
-		</div>
-		
-		<div th:if="${param.logout}">
-		
-		<p>ログアウトしました。</p>
-		</div>
-		
-		<p>
-			ユーザ名: <input
+		<div>
+			<label>ユーザ名：<input
 				type="text"
-				name="username" />
-		</p>
-		<p>
-			パスワード: <input
+				name="username" /></label>
+		</div>
+		<div>
+			<label>パスワード：<input
 				type="password"
-				name="password" />
-		</p>
-
-		<input
-			type="submit"
-			value="ログイン" />
-
+				name="password" /></label>
+		</div>
+		<div>
+			<input
+				type="submit"
+				value="ログイン" />
+		</div>
 	</form>
-
 </body>
-
 </html>
