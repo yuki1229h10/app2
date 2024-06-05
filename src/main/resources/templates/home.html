@@ -14,6 +14,7 @@
 	<h3>
 		ようこそ、<span sec:authentication="name"></span>
 	</h3>
+	<a th:href="">データを閲覧する</a>
 	<div sec:authorize="hasRole('MANAGER')">
 		<p>
 			<a th:href="@{/leaders}">リーダー専用</a>
